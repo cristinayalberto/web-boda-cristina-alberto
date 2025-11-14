@@ -5,13 +5,13 @@ import RSVPForm from '@/components/RSVPForm';
 import TimelineSection from '@/components/TimelineSection';
 import GiftSection from '@/components/GiftSection';
 
-const WEBHOOK_URL = "https://hook.eu1.make.com/ymt1b3rt5sadj37ikag5wx4hjh8815rg";
+const WEBHOOK_URL = "https://mi-webhook-de-ejemplo.com/rsvp";
 
 export default function Wedding() {
   const timelineEvents = [
-    { time: '13:00', title: 'Recepción' },
-    { time: '13:30', title: 'Ceremonia' },
-    { time: '14:15', title: 'Cóctel' },
+    { time: '12:30', title: 'Recepción invitados' },
+    { time: '13:00', title: 'Ceremonia' },
+    { time: '14:00', title: 'Cóctel' },
     { time: '15:30', title: 'Banquete' },
     { time: '18:00', title: 'Baile y fiesta' },
   ];
@@ -22,24 +22,24 @@ export default function Wedding() {
       
       <main>
         <HeroSection
-          couple="Pablo & María"
-          date="12 de septiembre de 2026"
+          couple="Cristina & Alberto"
+          date="26 de septiembre de 2026"
           subtitle="Nos casamos y queremos celebrarlo contigo"
         />
 
         <DetailsSection
-          venue="Finca El Encinar"
-          address="Camino del Encinar, s/n"
-          city="Segovia, España"
-          date="Sábado, 12 de septiembre de 2026"
+          venue="Monasterio de San Juan de los Reyes"
+          address="Calle de los Reyes Católicos, 17"
+          city="Toledo, España"
+          date="Sábado, 26 de septiembre de 2026"
           time="13:00"
-          mapsUrl="https://www.google.com/maps"
+          mapsUrl="https://www.google.com/maps/search/?api=1&query=Monasterio+de+San+Juan+de+los+Reyes+Toledo"
           dressCode="Dress code: elegante, pero cómodo"
         />
 
         <RSVPForm
           webhookUrl={WEBHOOK_URL}
-          deadline="15 de julio de 2026"
+          deadline="25 de agosto de 2026"
         />
 
         <TimelineSection events={timelineEvents} />
@@ -52,7 +52,7 @@ export default function Wedding() {
       </main>
 
       <footer className="py-8 text-center text-muted-foreground border-t">
-        <p>Pablo & María • 2026</p>
+        <p>Cristina & Alberto • 2026</p>
       </footer>
     </div>
   );

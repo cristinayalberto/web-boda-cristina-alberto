@@ -28,14 +28,22 @@ import { CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
 const formSchema = z.object({
   name: z.string().min(2, 'El nombre es obligatorio'),
   email: z.string().email('Email inválido'),
-  phone: z.string().optional(),
-  attendees: z.string().min(1, 'Indica el número de asistentes'),
+  hasCompanion: z.string().min(1, 'Indica si llevas acompañante'),
+  companionName: z.string().optional(),
   allergies: z.string().optional(),
-  transport: z.string().min(1, 'Selecciona una opción de transporte'),
-  song: z.string().optional(),
+  needsTransport: z.string().optional(),
+  needsAccommodation: z.string().optional(),
   privacy: z.boolean().refine((val) => val === true, {
     message: 'Debes aceptar la política de privacidad'
   }),
+}).refine((data) => {
+  if (data.hasCompanion === 'si' && !data.companionName?.trim()) {
+    return false;
+  }
+  return true;
+}, {
+  message: 'El nombre del acompañante es obligatorio',
+  path: ['companionName'],
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -54,14 +62,16 @@ export default function RSVPForm({ webhookUrl, deadline }: RSVPFormProps) {
     defaultValues: {
       name: '',
       email: '',
-      phone: '',
-      attendees: '',
+      hasCompanion: '',
+      companionName: '',
       allergies: '',
-      transport: '',
-      song: '',
+      needsTransport: '',
+      needsAccommodation: '',
       privacy: false,
     },
   });
+
+  const hasCompanion = form.watch('hasCompanion');
 
   const onSubmit = async (data: FormData) => {
     setSubmitStatus('loading');
@@ -157,47 +167,45 @@ export default function RSVPForm({ webhookUrl, deadline }: RSVPFormProps) {
 
                 <FormField
                   control={form.control}
-                  name="phone"
+                  name="hasCompanion"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Teléfono</FormLabel>
-                      <FormControl>
-                        <Input
-                          type="tel"
-                          placeholder="+34 600 000 000"
-                          {...field}
-                          data-testid="input-phone"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="attendees"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>¿Cuántas personas asistirán? *</FormLabel>
+                      <FormLabel>¿Llevas acompañante? *</FormLabel>
                       <Select onValueChange={field.onChange} value={field.value}>
                         <FormControl>
-                          <SelectTrigger data-testid="select-attendees">
-                            <SelectValue placeholder="Selecciona el número" />
+                          <SelectTrigger data-testid="select-has-companion">
+                            <SelectValue placeholder="Selecciona una opción" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="1">1 persona (yo solo/a)</SelectItem>
-                          <SelectItem value="2">2 personas</SelectItem>
-                          <SelectItem value="3">3 personas</SelectItem>
-                          <SelectItem value="4">4 personas</SelectItem>
-                          <SelectItem value="5">5 o más personas</SelectItem>
+                          <SelectItem value="si">Sí</SelectItem>
+                          <SelectItem value="no">No</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
+
+                {hasCompanion === 'si' && (
+                  <FormField
+                    control={form.control}
+                    name="companionName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Nombre y apellidos del acompañante *</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Ej: María Pérez García"
+                            {...field}
+                            data-testid="input-companion-name"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                )}
 
                 <FormField
                   control={form.control}
@@ -221,19 +229,19 @@ export default function RSVPForm({ webhookUrl, deadline }: RSVPFormProps) {
 
                 <FormField
                   control={form.control}
-                  name="transport"
+                  name="needsTransport"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Transporte *</FormLabel>
+                      <FormLabel>¿Vas a coger transporte de la boda?</FormLabel>
                       <Select onValueChange={field.onChange} value={field.value}>
                         <FormControl>
-                          <SelectTrigger data-testid="select-transport">
+                          <SelectTrigger data-testid="select-needs-transport">
                             <SelectValue placeholder="Selecciona una opción" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="bus">Usaré el autobús de la boda</SelectItem>
-                          <SelectItem value="own">Iré por mi cuenta</SelectItem>
+                          <SelectItem value="si">Sí</SelectItem>
+                          <SelectItem value="no">No</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
@@ -243,17 +251,21 @@ export default function RSVPForm({ webhookUrl, deadline }: RSVPFormProps) {
 
                 <FormField
                   control={form.control}
-                  name="song"
+                  name="needsAccommodation"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Canción para la fiesta</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Sugiere una canción que te gustaría escuchar"
-                          {...field}
-                          data-testid="input-song"
-                        />
-                      </FormControl>
+                      <FormLabel>¿Te vas a quedar hospedado/a?</FormLabel>
+                      <Select onValueChange={field.onChange} value={field.value}>
+                        <FormControl>
+                          <SelectTrigger data-testid="select-needs-accommodation">
+                            <SelectValue placeholder="Selecciona una opción" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="si">Sí</SelectItem>
+                          <SelectItem value="no">No</SelectItem>
+                        </SelectContent>
+                      </Select>
                       <FormMessage />
                     </FormItem>
                   )}

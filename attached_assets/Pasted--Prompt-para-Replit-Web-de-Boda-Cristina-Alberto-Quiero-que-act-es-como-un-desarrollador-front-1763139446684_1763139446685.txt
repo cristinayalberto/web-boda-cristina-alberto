@@ -1,0 +1,131 @@
+# Prompt para Replit — Web de Boda Cristina & Alberto
+
+Quiero que actúes como un desarrollador front-end experto trabajando en Replit.
+
+TU MISIÓN  
+Crear y mantener una página web completa para la boda de **Cristina & Alberto** con un estilo elegante, moderno y muy visual, inspirado en la experiencia de usuario de esta web:  
+https://segux.github.io/biyj/?inv=b  
+(No copies código, solo la UX: navegación por secciones, scroll suave, estilo limpio.)
+
+---
+
+## 🎯 Objetivo de la web
+1. Presentar la boda y la información del evento  
+2. Facilitar la confirmación de asistencia mediante un **formulario con Webhook**  
+3. Mostrar detalles útiles: ubicación, cronograma, dress code  
+4. Mostrar número de cuenta para regalos
+
+---
+
+## 👰🤵 Datos del evento a usar en la web
+
+| Elemento | Contenido |
+|---------|-----------|
+| Pareja | Cristina & Alberto |
+| Fecha | 26 de septiembre de 2026 |
+| Ciudad | Toledo, España |
+| Lugar | Monasterio de San Juan de los Reyes |
+| Hora | 13:00 (1 de la tarde) |
+| Límite para confirmar | Antes del 25 de agosto de 2026 |
+| Google Maps | https://www.google.com/maps/search/?api=1&query=Monasterio+de+San+Juan+de+los+Reyes+Toledo |
+
+Los textos pueden ser ligeramente embellecidos siempre manteniendo buena redacción.
+
+---
+
+## 📌 Estructura obligatoria de la web (One Page)
+Debe contener las siguientes secciones, accesibles desde un menú fijo superior:
+
+### 1️⃣ Inicio (`#inicio`)
+- Nombre grande de la pareja
+- Fecha y ciudad
+- Frase tipo: “Nos casamos y queremos celebrarlo contigo”
+- Botón → scroll a sección Confirmar
+
+### 2️⃣ Detalles (`#detalles`)
+- Horario básico del evento
+- Dirección del monasterio
+- Botón/link → abrir Google Maps
+- Breve descripción/dress code
+
+### 3️⃣ Confirmar asistencias (`#confirmar`)
+Texto previo indicando fecha límite.
+
+Formulario con **estos campos exactos**:
+
+| Campo | Tipo | Obligatorio |
+|-------|------|-------------|
+| Nombre y apellidos | input text | ✔ |
+| Email | input email | ✔ |
+| ¿Llevas acompañante? (Sí/No) | select | ✔ |
+| Nombre y apellidos acompañante (solo si respuesta = Sí) | input text | Condicional |
+| Intolerancias o alergias | textarea | ✖ |
+| ¿Vas a coger transporte de la boda? | select (Sí/No) | ✖ |
+| ¿Te vas a quedar hospedado/a? | select (Sí/No) | ✖ |
+| Política de privacidad | checkbox | ✔ |
+
+📍 Importante  
+- Validación en front  
+- Mensajes de error amigables  
+- Tras envío → mensaje de éxito sin recargar la página
+
+📍 Webhook  
+```js
+const WEBHOOK_URL = "https://mi-webhook-de-ejemplo.com/rsvp";
+```
+
+### 4️⃣ Horario (`#horario`)
+Timeline:
+
+| Hora | Evento |
+|------|--------|
+| 12:30 | Recepción invitados |
+| 13:00 | Ceremonia |
+| 14:00 | Cóctel |
+| 15:30 | Banquete |
+| 18:00 | Baile y fiesta |
+
+### 5️⃣ Regalo (`#regalo`)
+Mostrar IBAN (ejemplo):
+```
+ES00 0000 0000 0000 0000 0000
+```
+
+---
+
+## ✨ Diseño / UX
+
+- Estilo romántico, minimalista
+- Scroll suave
+- Menú superior fijo
+- Responsive
+- Tipografías Google Fonts
+- Animaciones sutiles
+
+---
+
+## 🛠️ Requisitos técnicos
+
+Proyecto con:
+- `index.html`
+- `styles.css`
+- `script.js`
+
+Buenas prácticas:
+- HTML semántico
+- Accesible
+- Validación de formulario
+
+---
+
+## 🔁 Comportamiento del agente de IA
+
+✔ Generar los 3 archivos  
+✔ Conservar estilos  
+✔ Mantener estructura  
+✔ Permitir edición futura  
+✔ No inventar secciones nuevas  
+
+---
+
+**Este prompt es la única fuente de verdad.**

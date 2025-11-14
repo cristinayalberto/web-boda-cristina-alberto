@@ -1,4 +1,4 @@
-# Página Web de Boda - Pablo & María
+# Página Web de Boda - Cristina & Alberto
 
 ## Descripción General
 Sitio web elegante y responsive para una boda, con diseño minimalista inspirado en páginas modernas de eventos. Permite a los invitados confirmar asistencia mediante un formulario que envía datos a un webhook.
@@ -50,28 +50,30 @@ Sitio web elegante y responsive para una boda, con diseño minimalista inspirado
 ### Webhook URL
 Configurado en `client/src/pages/Wedding.tsx`:
 ```javascript
-const WEBHOOK_URL = "https://hook.eu1.make.com/ymt1b3rt5sadj37ikag5wx4hjh8815rg";
+const WEBHOOK_URL = "https://mi-webhook-de-ejemplo.com/rsvp";
 ```
 
-### Datos Personalizables
-Todos los datos de ejemplo están en `client/src/pages/Wedding.tsx`:
-- Nombres de la pareja: "Pablo & María"
-- Fecha boda: "12 de septiembre de 2026"
-- Fecha límite confirmación: "15 de julio de 2026"
-- Lugar: "Finca El Encinar"
-- Dirección: "Camino del Encinar, s/n"
-- Ciudad: "Segovia, España"
+### Datos Actuales
+Todos los datos están en `client/src/pages/Wedding.tsx`:
+- Nombres de la pareja: "Cristina & Alberto"
+- Fecha boda: "26 de septiembre de 2026"
+- Fecha límite confirmación: "25 de agosto de 2026"
+- Lugar: "Monasterio de San Juan de los Reyes"
+- Dirección: "Calle de los Reyes Católicos, 17"
+- Ciudad: "Toledo, España"
 - Hora: "13:00"
 - IBAN: "ES00 0000 0000 0000 0000 0000"
-- URL Google Maps: actualizar en `mapsUrl` prop
+- URL Google Maps: https://www.google.com/maps/search/?api=1&query=Monasterio+de+San+Juan+de+los+Reyes+Toledo
 
 ### Horario del Día
-El cronograma se puede modificar en el array `timelineEvents`:
+El cronograma actual:
 ```javascript
 const timelineEvents = [
-  { time: '13:00', title: 'Recepción' },
-  { time: '13:30', title: 'Ceremonia' },
-  // ... más eventos
+  { time: '12:30', title: 'Recepción invitados' },
+  { time: '13:00', title: 'Ceremonia' },
+  { time: '14:00', title: 'Cóctel' },
+  { time: '15:30', title: 'Banquete' },
+  { time: '18:00', title: 'Baile y fiesta' },
 ];
 ```
 
@@ -117,14 +119,24 @@ const timelineEvents = [
 {
   "name": "string (requerido, min 2 caracteres)",
   "email": "string (requerido, formato email)",
-  "phone": "string (opcional)",
-  "attendees": "string (requerido, 1-5+)",
+  "hasCompanion": "string (requerido, 'si' o 'no')",
+  "companionName": "string (condicional - requerido si hasCompanion = 'si')",
   "allergies": "string (opcional)",
-  "transport": "string (requerido, 'bus' o 'own')",
-  "song": "string (opcional)",
+  "needsTransport": "string (opcional, 'si' o 'no')",
+  "needsAccommodation": "string (opcional, 'si' o 'no')",
   "privacy": "boolean (debe ser true)"
 }
 ```
+
+### Campos del Formulario RSVP
+1. **Nombre y apellidos** (obligatorio)
+2. **Email** (obligatorio, validación de formato)
+3. **¿Llevas acompañante?** (obligatorio, Sí/No)
+4. **Nombre y apellidos del acompañante** (condicional - solo aparece si selecciona "Sí" en acompañante, y es obligatorio en ese caso)
+5. **Intolerancias o alergias alimentarias** (opcional, textarea)
+6. **¿Vas a coger transporte de la boda?** (opcional, Sí/No)
+7. **¿Te vas a quedar hospedado/a?** (opcional, Sí/No)
+8. **Política de privacidad** (obligatorio, checkbox)
 
 ### Mensajes de Estado
 - Loading: "Enviando..." con spinner
