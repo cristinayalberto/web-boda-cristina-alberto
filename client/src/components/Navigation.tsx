@@ -37,6 +37,8 @@ export default function Navigation({ onNavigate }: NavigationProps) {
     { id: 'detalles', label: 'Detalles' },
     { id: 'confirmar', label: 'Confirmar' },
     { id: 'horario', label: 'Horario' },
+    { id: 'hospedaje', label: 'Hospedaje' },
+    { id: 'actividades', label: 'Actividades' },
     { id: 'regalo', label: 'Regalo' },
   ];
 

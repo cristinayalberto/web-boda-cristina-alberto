@@ -3,6 +3,8 @@ import HeroSection from '@/components/HeroSection';
 import DetailsSection from '@/components/DetailsSection';
 import RSVPForm from '@/components/RSVPForm';
 import TimelineSection from '@/components/TimelineSection';
+import AccommodationSection from '@/components/AccommodationSection';
+import ActivitiesSection from '@/components/ActivitiesSection';
 import GiftSection from '@/components/GiftSection';
 
 const WEBHOOK_URL = "https://hook.eu1.make.com/ymt1b3rt5sadj37ikag5wx4hjh8815rg";
@@ -39,6 +41,19 @@ export default function Wedding() {
     },
   ];
 
+  const hotels = [
+    {
+      name: 'Eurostars Toledo',
+      address: 'Paseo San Eugenio, s/n, Toledo',
+      promoCodeNote: 'Dispondrás de un código promocional para este hotel. Te lo facilitaremos más adelante. Código promocional: [pendiente de confirmar]',
+    },
+    {
+      name: 'Hotel Boutique Posada de la Sillería',
+      address: 'Calle Sillería, 10, Toledo',
+      promoCodeNote: 'Dispondrás de un código promocional para este hotel. Te lo facilitaremos más adelante. Código promocional: [pendiente de confirmar]',
+    },
+  ];
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -66,6 +81,10 @@ export default function Wedding() {
         />
 
         <TimelineSection days={timelineDays} />
+
+        <AccommodationSection hotels={hotels} />
+
+        <ActivitiesSection />
 
         <GiftSection
           iban="ES71 0073 0100 5208 5671 7635"

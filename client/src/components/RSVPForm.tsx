@@ -30,12 +30,12 @@ const formSchema = z.object({
   email: z.string().email('Email inválido'),
   hasCompanion: z.string().min(1, 'Indica si llevas acompañante'),
   companionName: z.string().optional(),
-  allergies: z.string().optional(),
-  needsTransport: z.string().optional(),
-  needsAccommodation: z.string().optional(),
-  privacy: z.boolean().refine((val) => val === true, {
-    message: 'Debes aceptar la política de privacidad'
-  }),
+  hasAllergy: z.string().min(1, 'Indica si tienes alguna intolerancia o alergia'),
+  allergyDetails: z.string().optional(),
+  attendsPreboda: z.string().min(1, 'Indica si vas a asistir a la preboda'),
+  staysInToledo: z.string().min(1, 'Indica si vas a dormir en Toledo'),
+  accommodation: z.string().optional(),
+  needsBus: z.string().min(1, 'Indica si vas a necesitar autobús'),
 }).refine((data) => {
   if (data.hasCompanion === 'si' && !data.companionName?.trim()) {
     return false;
@@ -44,6 +44,22 @@ const formSchema = z.object({
 }, {
   message: 'El nombre del acompañante es obligatorio',
   path: ['companionName'],
+}).refine((data) => {
+  if (data.hasAllergy === 'si' && !data.allergyDetails?.trim()) {
+    return false;
+  }
+  return true;
+}, {
+  message: 'Por favor, indica tus intolerancias o alergias',
+  path: ['allergyDetails'],
+}).refine((data) => {
+  if (data.staysInToledo === 'si' && !data.accommodation?.trim()) {
+    return false;
+  }
+  return true;
+}, {
+  message: 'Por favor, indica dónde te hospedas',
+  path: ['accommodation'],
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -64,14 +80,18 @@ export default function RSVPForm({ webhookUrl, deadline }: RSVPFormProps) {
       email: '',
       hasCompanion: '',
       companionName: '',
-      allergies: '',
-      needsTransport: '',
-      needsAccommodation: '',
-      privacy: false,
+      hasAllergy: '',
+      allergyDetails: '',
+      attendsPreboda: '',
+      staysInToledo: '',
+      accommodation: '',
+      needsBus: '',
     },
   });
 
   const hasCompanion = form.watch('hasCompanion');
+  const hasAllergy = form.watch('hasAllergy');
+  const staysInToledo = form.watch('staysInToledo');
 
   const onSubmit = async (data: FormData) => {
     setSubmitStatus('loading');
@@ -209,33 +229,13 @@ export default function RSVPForm({ webhookUrl, deadline }: RSVPFormProps) {
 
                 <FormField
                   control={form.control}
-                  name="allergies"
+                  name="hasAllergy"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Intolerancias o alergias alimentarias</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          placeholder="Por favor, indícanos si tienes alguna alergia o intolerancia"
-                          className="resize-none"
-                          rows={3}
-                          {...field}
-                          data-testid="input-allergies"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="needsTransport"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>¿Vas a coger transporte de la boda?</FormLabel>
+                      <FormLabel>¿Tienes alguna intolerancia o alergia? *</FormLabel>
                       <Select onValueChange={field.onChange} value={field.value}>
                         <FormControl>
-                          <SelectTrigger data-testid="select-needs-transport">
+                          <SelectTrigger data-testid="select-has-allergy">
                             <SelectValue placeholder="Selecciona una opción" />
                           </SelectTrigger>
                         </FormControl>
@@ -249,50 +249,110 @@ export default function RSVPForm({ webhookUrl, deadline }: RSVPFormProps) {
                   )}
                 />
 
-                <FormField
-                  control={form.control}
-                  name="needsAccommodation"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>¿Te vas a quedar hospedado/a?</FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value}>
+                {hasAllergy === 'si' && (
+                  <FormField
+                    control={form.control}
+                    name="allergyDetails"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Indica tus intolerancias o alergias *</FormLabel>
                         <FormControl>
-                          <SelectTrigger data-testid="select-needs-accommodation">
-                            <SelectValue placeholder="Selecciona una opción" />
-                          </SelectTrigger>
+                          <Textarea
+                            placeholder="Por favor, indícanos tus intolerancias o alergias alimentarias"
+                            className="resize-none"
+                            rows={3}
+                            {...field}
+                            data-testid="input-allergy-details"
+                          />
                         </FormControl>
-                        <SelectContent>
-                          <SelectItem value="si">Sí</SelectItem>
-                          <SelectItem value="no">No</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="privacy"
-                  render={({ field }) => (
-                    <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                      <FormControl>
-                        <Checkbox
-                          checked={field.value}
-                          onCheckedChange={field.onChange}
-                          data-testid="checkbox-privacy"
-                        />
-                      </FormControl>
-                      <div className="space-y-1 leading-none">
-                        <Label>
-                          Acepto la{' '}
-                          <a href="#" className="text-primary underline">
-                            política de privacidad
-                          </a>{' '}
-                          *
-                        </Label>
                         <FormMessage />
-                      </div>
+                      </FormItem>
+                    )}
+                  />
+                )}
+
+                <FormField
+                  control={form.control}
+                  name="attendsPreboda"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>¿Vas a asistir a la preboda? *</FormLabel>
+                      <Select onValueChange={field.onChange} value={field.value}>
+                        <FormControl>
+                          <SelectTrigger data-testid="select-attends-preboda">
+                            <SelectValue placeholder="Selecciona una opción" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="si">Sí</SelectItem>
+                          <SelectItem value="no">No</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="staysInToledo"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>¿Vas a dormir en Toledo? *</FormLabel>
+                      <Select onValueChange={field.onChange} value={field.value}>
+                        <FormControl>
+                          <SelectTrigger data-testid="select-stays-toledo">
+                            <SelectValue placeholder="Selecciona una opción" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="si">Sí</SelectItem>
+                          <SelectItem value="no">No</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                {staysInToledo === 'si' && (
+                  <FormField
+                    control={form.control}
+                    name="accommodation"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>¿Dónde te hospedas? *</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="Ej: Hotel Eurostars Toledo, apartamento, casa de familiar..."
+                            {...field}
+                            data-testid="input-accommodation"
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                )}
+
+                <FormField
+                  control={form.control}
+                  name="needsBus"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>¿Vas a necesitar autobús? *</FormLabel>
+                      <Select onValueChange={field.onChange} value={field.value}>
+                        <FormControl>
+                          <SelectTrigger data-testid="select-needs-bus">
+                            <SelectValue placeholder="Selecciona una opción" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="si">Sí</SelectItem>
+                          <SelectItem value="no">No</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
                     </FormItem>
                   )}
                 />
