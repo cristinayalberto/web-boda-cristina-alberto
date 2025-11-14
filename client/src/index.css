@@ -43,9 +43,9 @@
   --chart-3: 350 65% 38%;
   --chart-4: 20 60% 50%;
   --chart-5: 335 70% 48%;
-  --font-sans: Open Sans, sans-serif;
-  --font-serif: Georgia, serif;
-  --font-mono: Menlo, monospace;
+  --font-sans: Lato, Inter, Open Sans, sans-serif;
+  --font-serif: Playfair Display, Georgia, serif;
+  --font-mono: monospace, Menlo;
   --radius: .5rem;
   --shadow-2xs: 0px 2px 0px 0px hsl(30 8% 12% / 0.00);
   --shadow-xs: 0px 2px 0px 0px hsl(30 8% 12% / 0.00);
@@ -168,6 +168,10 @@
 @layer base {
   * {
     @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
