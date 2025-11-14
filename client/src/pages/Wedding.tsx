@@ -8,12 +8,35 @@ import GiftSection from '@/components/GiftSection';
 const WEBHOOK_URL = "https://hook.eu1.make.com/ymt1b3rt5sadj37ikag5wx4hjh8815rg";
 
 export default function Wedding() {
-  const timelineEvents = [
-    { time: '12:30', title: 'Recepción invitados' },
-    { time: '13:00', title: 'Ceremonia' },
-    { time: '14:00', title: 'Cóctel' },
-    { time: '15:30', title: 'Banquete' },
-    { time: '18:00', title: 'Baile y fiesta' },
+  const timelineDays = [
+    {
+      day: 'Viernes',
+      date: '25 de septiembre de 2026',
+      events: [
+        {
+          title: 'Preboda',
+          description: 'Habrá una preboda el viernes 25. Os daremos más información más adelante.',
+        },
+      ],
+    },
+    {
+      day: 'Sábado',
+      date: '26 de septiembre de 2026',
+      events: [
+        {
+          time: '13:00',
+          title: 'Ceremonia',
+          description: 'Ceremonia en el Monasterio de San Juan de los Reyes.',
+          address: 'Calle Reyes Católicos, 17, Toledo',
+        },
+        {
+          time: '15:00',
+          title: 'Banquete y fiesta',
+          description: 'Banquete y fiesta en Viñedos Cigarral Santa María.',
+          address: 'Cerro del Emperador, Toledo',
+        },
+      ],
+    },
   ];
 
   return (
@@ -42,10 +65,10 @@ export default function Wedding() {
           deadline="25 de agosto de 2026"
         />
 
-        <TimelineSection events={timelineEvents} />
+        <TimelineSection days={timelineDays} />
 
         <GiftSection
-          iban="ES00 0000 0000 0000 0000 0000"
+          iban="ES71 0073 0100 5208 5671 7635"
           message="Tu presencia es el mejor regalo. Si además quieres hacernos un regalo, puedes hacerlo en la siguiente cuenta:"
           note="Por favor, indica tu nombre en el concepto"
         />

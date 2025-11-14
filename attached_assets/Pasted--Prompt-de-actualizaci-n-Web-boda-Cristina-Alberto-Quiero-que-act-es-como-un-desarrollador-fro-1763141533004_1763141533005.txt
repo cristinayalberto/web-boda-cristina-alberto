@@ -1,0 +1,216 @@
+# Prompt de actualización — Web boda Cristina & Alberto
+
+Quiero que actúes como un desarrollador front-end experto que va a MODIFICAR una web de boda ya existente en Replit.  
+La web ya está creada (HTML, CSS y JS) y tiene:
+
+- Sección de cronograma/horario del día.
+- Sección de “Confirmar asistencia” con formulario que envía los datos a un Webhook.
+- Sección de recomendaciones / regalo con un número de cuenta bancaria.
+- Estilo elegante, minimalista, responsive.
+
+Tu tarea NO es rehacer la web desde cero, sino **actualizar el contenido y el formulario** manteniendo la estética, el layout y el código ya existente tanto como sea posible.
+
+---
+
+## 1. Cambios en el cronograma / horario
+
+En la sección de horario (cronograma), reemplaza el contenido actual por el siguiente esquema:
+
+### Viernes 25 de septiembre de 2026 — Preboda
+
+- Añade un bloque para el **viernes 25** con este texto:
+  - Título: “Preboda — Viernes 25 de septiembre”
+  - Descripción: “Habrá una preboda el viernes 25. Os daremos más información más adelante.”
+
+(No hace falta indicar hora ni lugar todavía, solo dejar claro que habrá preboda y que se dará más información.)
+
+### Sábado 26 de septiembre de 2026 — Boda
+
+- Mantén el estilo de timeline / tarjetas que ya tenga la sección, pero con estos eventos:
+
+1. **13:00 — Ceremonia**
+   - Texto: “Ceremonia en el Monasterio de San Juan de los Reyes.”
+   - Dirección: “Calle Reyes Católicos, 17, Toledo.”
+   - Puedes mantener un enlace a Google Maps si ya existía, apuntando al monasterio.
+
+2. **15:00 — Banquete y fiesta**
+   - Texto: “Banquete y fiesta en Viñedos Cigarral Santa María.”
+   - Dirección: “Cerro del Emperador, Toledo.”
+
+Respeta la estructura visual actual del cronograma (timeline, tarjetas, iconos, etc.), solo cambia títulos, horas y descripciones.
+
+---
+
+## 2. Cambios en el formulario de “Confirmar asistencia”
+
+En la sección de **Confirmar asistencia**, el formulario debe contener **únicamente** los siguientes campos, en este orden lógico, con este comportamiento:
+
+1. **Nombre y apellidos**  
+   - Tipo: input text  
+   - Obligatorio
+
+2. **Email**  
+   - Tipo: input email  
+   - Obligatorio
+
+3. **¿Llevas acompañante?**  
+   - Tipo: select o radios (Sí/No)  
+   - Obligatorio
+
+4. **Nombre y apellidos del acompañante**  
+   - Tipo: input text  
+   - Condicional:  
+     - Solo se muestra si la respuesta anterior es “Sí”.
+     - Si se muestra, es obligatorio.
+
+5. **¿Tienes alguna intolerancia o alergia?**  
+   - Tipo: select o radios (Sí/No)  
+   - Obligatorio
+
+6. **Indica tus intolerancias o alergias**  
+   - Tipo: textarea o input text  
+   - Condicional:  
+     - Solo se muestra si la respuesta anterior es “Sí”.
+     - Si se muestra, es obligatorio.
+
+7. **¿Vas a asistir a la preboda?**  
+   - Tipo: select o radios (Sí/No)  
+   - Obligatorio
+
+8. **¿Vas a dormir en Toledo?**  
+   - Tipo: select o radios (Sí/No)  
+   - Obligatorio
+
+9. **¿Dónde te hospedas?**  
+   - Tipo: input text  
+   - Condicional:  
+     - Solo se muestra si la respuesta anterior es “Sí”.
+     - Texto libre para que el invitado diga hotel, apartamento, etc.
+     - Si se muestra, es obligatorio.
+
+10. **¿Vas a necesitar autobús?**  
+    - Tipo: select o radios (Sí/No)  
+    - Obligatorio
+
+> Importante:
+> - Elimina del formulario cualquier otro campo que hubiera antes y que no esté en esta lista.  
+> - Mantén la validación en el front (campos obligatorios, email válido, etc.).  
+> - Mantén el envío al Webhook como estaba, pero adapta el JSON que se envía para incluir estos nuevos campos y nombres.  
+> - Mantén los mensajes de estado (“Enviando…”, “¡Gracias por confirmar!”, mensaje de error, etc.).
+
+---
+
+## 3. Sección “Recomendaciones de hospedaje”
+
+Crea o actualiza una sección específica de **recomendaciones de hospedaje** (puede estar dentro de la sección de información práctica o como una sección propia, pero mantén el estilo actual de la web).
+
+Título sugerido: `Recomendaciones de hospedaje en Toledo`
+
+Incluye los siguientes hoteles como tarjetas/bloques, manteniendo el estilo visual de la web:
+
+### Hotel 1: Eurostars Toledo
+
+- Nombre: “Eurostars Toledo”
+- Dirección: “Paseo San Eugenio, s/n, Toledo”
+- Texto adicional:
+  - Indica que hay un **código promocional** para los invitados.
+  - No pongas aún el código concreto; deja un texto tipo:
+    - “Dispondrás de un código promocional para este hotel. Te lo facilitaremos más adelante.”
+  - El código deberá aparecer en un lugar fácilmente visible (por ejemplo: “Código promocional: [pendiente de confirmar]”).
+
+### Hotel 2: Hotel Boutique Posada de la Sillería
+
+- Nombre: “Hotel Boutique Posada de la Sillería”
+- Dirección: “Calle Sillería, 10, Toledo”
+- Texto adicional:
+  - Igual que el anterior: indicar que habrá **código promocional** que se facilitará más adelante.
+  - “Código promocional: [pendiente de confirmar]”.
+
+> Nota: deja el texto del código de forma que sea fácil de localizar en el HTML para cambiarlo más adelante por el código real.
+
+---
+
+## 4. Nueva sección “Actividades en Toledo”
+
+Añade una sección nueva dedicada a sugerencias de actividades, manteniendo el mismo estilo visual: títulos, tarjetas, columnas, etc.
+
+Título sugerido de la sección: `Qué hacer en Toledo`
+
+Dentro de esta sección, crea los siguientes apartados/bloques:
+
+### 4.1. Monumentos y cultura
+
+Texto introductorio breve, por ejemplo:  
+“Si tienes tiempo para disfrutar de Toledo, te recomendamos algunos lugares imprescindibles:”
+
+Incluye una lista (puede ser lista simple o tarjetas) con estos sitios:
+
+- Catedral de Toledo  
+- Alcázar de Toledo  
+- Iglesia de Santo Tomé  
+- Mezquita del Cristo de la Luz  
+- Sinagoga del Tránsito  
+- Museo Sefardí  
+
+Puedes añadir 1–2 frases generales sobre que es recomendable pasear y reservar entradas con antelación si lo consideras oportuno, pero sin alargar demasiado el texto.
+
+### 4.2. Pasear por el casco histórico
+
+Crea un pequeño bloque con título, por ejemplo: “Pasear por el casco histórico” y un texto corto tipo:
+
+“Perderse por las calles del casco histórico es una de las mejores formas de conocer Toledo: miradores, plazas, callejones y rincones con mucho encanto.”
+
+### 4.3. Puy du Fou
+
+Crea otro bloque con título: “Puy du Fou España” (o “Puy du Fou”) y un texto corto explicando que es un parque de espectáculos históricos cerca de Toledo, por ejemplo:
+
+“Si te quedas algún día extra, Puy du Fou España ofrece espectáculos al aire libre inspirados en la historia, muy cerca de Toledo. Es recomendable consultar horarios y entradas con antelación.”
+
+---
+
+## 5. Actualización de la cuenta bancaria
+
+En la sección donde se muestra la cuenta bancaria para los regalos (normalmente en el apartado de “Regalo” o similar), sustituye el IBAN anterior por el siguiente:
+
+**ES7100730100520856717635**
+
+Asegúrate de que:
+
+- Se muestra de forma clara y legible.
+- Se mantiene el estilo actual (tipografía, color, etc.).
+- Si hay algún texto explicativo tipo “Tu presencia es el mejor regalo…”, consérvalo.
+
+---
+
+## 6. Consideraciones técnicas
+
+- Mantén la estructura actual (`index.html`, `styles.css`, `script.js`).
+- No elimines funcionalidades de scroll suave, menú fijo, ni comportamiento responsive.
+- Respeta al máximo los estilos existentes y las clases CSS actuales; si necesitas nuevas clases, añádelas de forma coherente.
+- En JavaScript:
+  - Actualiza únicamente la lógica de formulario necesaria para manejar los nuevos campos y condiciones (acompañante, intolerancias, hospedaje).
+  - Mantén el envío al mismo `WEBHOOK_URL` y el manejo de estados.
+
+---
+
+## 7. Entregable esperado
+
+Devuélveme:
+
+1. El **nuevo `index.html`** con:
+   - Sección de cronograma actualizada.
+   - Formulario de Confirmar asistencia con los nuevos campos.
+   - Nueva sección de recomendaciones de hospedaje.
+   - Nueva sección de actividades en Toledo.
+   - IBAN actualizado.
+
+2. El **nuevo `script.js`** con:
+   - Lógica de mostrar/ocultar campos condicionales:
+     - Nombre del acompañante.
+     - Campo para detallar intolerancias.
+     - Campo de “Dónde te hospedas”.
+   - Validaciones actualizadas para los nuevos campos.
+
+3. Solo toca `styles.css` si es imprescindible para que las nuevas secciones se integren bien visualmente; de lo contrario, reutiliza estilos existentes.
+
+No añadas secciones adicionales ni cambios de diseño grandes que no se hayan pedido expresamente.
