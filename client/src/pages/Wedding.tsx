@@ -5,7 +5,7 @@ import RSVPForm from '@/components/RSVPForm';
 import TimelineSection from '@/components/TimelineSection';
 import GiftSection from '@/components/GiftSection';
 
-const WEBHOOK_URL = "https://mi-webhook-de-ejemplo.com/rsvp";
+const WEBHOOK_URL = "https://hook.eu1.make.com/ymt1b3rt5sadj37ikag5wx4hjh8815rg";
 
 export default function Wedding() {
   const timelineEvents = [

@@ -50,7 +50,7 @@ Sitio web elegante y responsive para una boda, con diseño minimalista inspirado
 ### Webhook URL
 Configurado en `client/src/pages/Wedding.tsx`:
 ```javascript
-const WEBHOOK_URL = "https://mi-webhook-de-ejemplo.com/rsvp";
+const WEBHOOK_URL = "https://hook.eu1.make.com/ymt1b3rt5sadj37ikag5wx4hjh8815rg";
 ```
 
 ### Datos Actuales
