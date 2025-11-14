@@ -1,0 +1,113 @@
+TU TAREA
+Crea una página web completa para una boda (evento) en español, con aspecto muy cuidado, responsive y con una experiencia de usuario inspirada claramente en esta página:
+https://segux.github.io/biyj/?inv=b
+
+No copies el código de esa web, pero sí:
+- Estructura de “one-page” con varias secciones accesibles desde un menú superior.
+- Estilo limpio, moderno, minimalista.
+- Navegación suave por anclas (scroll suave a cada sección).
+- Tipografía elegante y colores suaves (tono boda/romántico).
+
+OBJETIVO DE LA WEB
+1. Presentar la boda (pareja, fecha, lugar, mensaje).
+2. Mostrar información básica del evento (cuándo, dónde, cómo llegar).
+3. Mostrar un cronograma/horario del día.
+4. Permitir que los invitados confirmen asistencia mediante un formulario.
+5. Enviar los datos del formulario a un webhook vía petición HTTP POST.
+6. Mostrar un apartado de “Regalo” con un número de cuenta (IBAN) y un pequeño texto explicativo.
+
+DATOS DE EJEMPLO (QUE LUEGO PODRÉ CAMBIAR)
+- Pareja: “Pablo & María”
+- Fecha: “12 de septiembre de 2026”
+- Lugar: “Finca El Encinar”
+- Ciudad: “Segovia, España”
+- Cuenta bancaria (IBAN): “ES00 0000 0000 0000 0000 0000”
+- Fecha límite confirmación: “15 de julio de 2026”
+
+ESTRUCTURA DE LA PÁGINA
+Crea una single page con estas secciones (cada una con su ID para el menú):
+
+1. **Inicio** (`#inicio`)
+   - Nombre de la pareja (H1 grande).
+   - Fecha de la boda.
+   - Un subtítulo tipo “Nos casamos y queremos celebrarlo contigo”.
+   - Un botón destacado “Confirmar asistencia” que haga scroll a la sección de formulario.
+
+2. **Detalles** (`#detalles`)
+   - Bloque “Ceremonia y Celebración” con:
+     - Día de la semana, fecha completa y hora aproximada.
+     - Nombre del lugar.
+     - Dirección, ciudad, país.
+     - Un botón o enlace “Ver ubicación” que abra Google Maps en una nueva pestaña (usa una URL de ejemplo).
+   - Bloque con un breve texto explicando el dress code o recomendaciones (por ejemplo, “Dress code: elegante, pero cómodo”).
+
+3. **Confirmar / Formulario de RSVP** (`#confirmar`)
+   - Breve texto explicando la importancia de la confirmación y la fecha límite.
+   - Formulario con los siguientes campos:
+     - Nombre y apellidos (obligatorio).
+     - Email (obligatorio).
+     - Teléfono (opcional).
+     - Número de asistentes que vienen contigo (select o input numérico).
+     - Indicar si tiene alguna intolerancia o alergia alimentaria (textarea o input).
+     - Opción de transporte (por ejemplo, checkbox o select: “Usaré el autobús de la boda / Iré por mi cuenta”).
+     - Campo opcional para sugerir una canción para la fiesta.
+   - Checkbox de aceptación de política de privacidad (de momento solo un texto y un enlace ficticio).
+   - Botón “Enviar confirmación”.
+   - Validación básica en el front: campos obligatorios, email con formato válido, mostrar mensajes de error amigables.
+   - Tras el envío correcto, mostrar un mensaje de éxito claro (“¡Gracias por confirmar! Hemos recibido tus datos”) sin recargar la página.
+
+4. **Horario** (`#horario`)
+   - Lista o línea de tiempo con las horas aproximadas:
+     - 13:00 – Recepción.
+     - 13:30 – Ceremonia.
+     - 14:15 – Cóctel.
+     - 15:30 – Banquete.
+     - 18:00 – Baile y fiesta.
+   - Estilo visual agradable (por ejemplo, una línea vertical con puntos y los bloques de contenido a los lados).
+
+5. **Regalo** (`#regalo`)
+   - Texto: “Tu presencia es el mejor regalo. Si además quieres hacernos un regalo, puedes hacerlo en la siguiente cuenta:”
+   - Mostrar el número de cuenta (IBAN) de forma destacada, pero clara.
+   - Opcional: un pequeño texto aclaratorio tipo “Por favor, indica tu nombre en el concepto”.
+
+EXPERIENCIA DE USUARIO Y DISEÑO
+- Usa un menú fijo en la parte superior con enlaces a: Inicio, Detalles, Confirmar, Horario, Regalo.
+- Implementa scroll suave al hacer clic en el menú.
+- Diseño responsive: debe verse bien en móvil, tablet y escritorio.
+- Paleta de colores suaves (por ejemplo, tonos crema, rosa claro, verde suave o similares).
+- Usa una tipografía elegante (por ejemplo, Google Fonts, combinando una tipografía cursiva para títulos con otra más legible para textos).
+- Añade pequeños detalles visuales (separadores, iconos simples o emojis discretos) sin recargar.
+
+FORMULARIO Y WEBHOOK
+- Define una constante en JavaScript llamada `WEBHOOK_URL` donde pueda poner la URL real, por ejemplo:
+  `const WEBHOOK_URL = "https://hook.eu1.make.com/ymt1b3rt5sadj37ikag5wx4hjh8815rg
+";`
+- Al enviar el formulario:
+  - Valida los campos en el front.
+  - Si todo es correcto, realiza una petición `fetch` POST en JSON al `WEBHOOK_URL` con todos los campos del formulario.
+  - Muestra estados:
+    - “Enviando…” mientras se hace la petición.
+    - Mensaje de éxito si responde OK.
+    - Mensaje de error si falla (por ejemplo, “Ha ocurrido un problema al enviar tu confirmación, por favor inténtalo de nuevo”).
+  - Evita recargar la página.
+
+REQUISITOS TÉCNICOS
+- Crea un pequeño proyecto estándar de Replit con:
+  - `index.html`
+  - `styles.css`
+  - `script.js`
+- Enlaza correctamente `styles.css` y `script.js` desde `index.html`.
+- Usa HTML semántico (header, main, section, footer).
+- Asegúrate de que la web funciona sin frameworks complejos (solo HTML, CSS y JavaScript puro).
+- Cuida la accesibilidad básica:
+  - Etiquetas `label` asociadas a inputs.
+  - Contraste de colores suficiente para leer bien.
+  - Textos alternativos para cualquier imagen decorativa relevante (si las incluyes).
+
+ENTREGABLE
+Devuélveme directamente el código completo de:
+- `index.html`
+- `styles.css`
+- `script.js`
+
+De forma que pueda copiarlo/pegarlo en Replit, ejecutar el proyecto y tener la web de la boda funcionando, con el formulario que envía los datos al webhook y la experiencia de usuario inspirada en la página proporcionada.
