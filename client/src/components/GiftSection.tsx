@@ -7,9 +7,10 @@ interface GiftSectionProps {
   iban: string;
   message: string;
   note?: string;
+  image?: string;
 }
 
-export default function GiftSection({ iban, message, note }: GiftSectionProps) {
+export default function GiftSection({ iban, message, note, image }: GiftSectionProps) {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
@@ -20,8 +21,8 @@ export default function GiftSection({ iban, message, note }: GiftSectionProps) {
 
   return (
     <section id="regalo" className="py-16 md:py-24 px-4">
-      <div className="container mx-auto max-w-3xl">
-        <div className="text-center mb-8">
+      <div className="container mx-auto max-w-4xl">
+        <div className="text-center mb-10">
           <Gift className="w-12 h-12 mx-auto text-primary mb-6" />
           <h2
             className="text-3xl md:text-5xl font-serif mb-6 tracking-wide"
@@ -35,41 +36,54 @@ export default function GiftSection({ iban, message, note }: GiftSectionProps) {
           </p>
         </div>
 
-        <Card className="p-6 md:p-8 bg-accent/20">
-          <p className="text-center text-sm text-muted-foreground mb-3">Número de cuenta:</p>
-          <div className="flex items-center justify-center gap-3 flex-wrap">
-            <p
-              className="text-base md:text-lg font-mono text-center"
-              style={{ fontFamily: 'monospace' }}
-              data-testid="text-iban"
-            >
-              {iban}
-            </p>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={copyToClipboard}
-              data-testid="button-copy-iban"
-            >
-              {copied ? (
-                <>
-                  <Check className="w-4 h-4 mr-2" />
-                  Copiado
-                </>
-              ) : (
-                <>
-                  <Copy className="w-4 h-4 mr-2" />
-                  Copiar
-                </>
-              )}
-            </Button>
-          </div>
-          {note && (
-            <p className="text-center text-sm text-muted-foreground mt-4" data-testid="text-gift-note">
-              {note}
-            </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          {image && (
+            <div className="order-1 md:order-1">
+              <img
+                src={image}
+                alt="Regalo decorativo"
+                className="w-full h-64 md:h-80 object-cover rounded-lg"
+                data-testid="img-gift-decorative"
+              />
+            </div>
           )}
-        </Card>
+
+          <Card className={`p-6 md:p-8 bg-accent/20 ${image ? 'order-2 md:order-2' : 'md:col-span-2 max-w-xl mx-auto'}`}>
+            <p className="text-center text-sm text-muted-foreground mb-3">Número de cuenta:</p>
+            <div className="flex items-center justify-center gap-3 flex-wrap">
+              <p
+                className="text-base md:text-lg font-mono text-center"
+                style={{ fontFamily: 'monospace' }}
+                data-testid="text-iban"
+              >
+                {iban}
+              </p>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={copyToClipboard}
+                data-testid="button-copy-iban"
+              >
+                {copied ? (
+                  <>
+                    <Check className="w-4 h-4 mr-2" />
+                    Copiado
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4 mr-2" />
+                    Copiar
+                  </>
+                )}
+              </Button>
+            </div>
+            {note && (
+              <p className="text-center text-sm text-muted-foreground mt-4" data-testid="text-gift-note">
+                {note}
+              </p>
+            )}
+          </Card>
+        </div>
       </div>
     </section>
   );

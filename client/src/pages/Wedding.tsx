@@ -9,6 +9,7 @@ import GiftSection from '@/components/GiftSection';
 import logoBoda from '@assets/logo-boda.png';
 import ceremoniaImg from '@assets/ceremonia-monasterio.png';
 import celebracionImg from '@assets/celebracion-finca.png';
+import regaloImg from '@assets/regalo-decorativo.png';
 
 const WEBHOOK_URL = "https://hook.eu1.make.com/ymt1b3rt5sadj37ikag5wx4hjh8815rg";
 
@@ -99,6 +100,7 @@ export default function Wedding() {
           iban="ES71 0073 0100 5208 5671 7635"
           message="Tu presencia es el mejor regalo. Si además quieres hacernos un regalo, puedes hacerlo en la siguiente cuenta:"
           note="Por favor, indica tu nombre en el concepto"
+          image={regaloImg}
         />
       </main>
 
