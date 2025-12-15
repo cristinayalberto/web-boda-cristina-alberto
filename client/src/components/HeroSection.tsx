@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import logoBoda from '@assets/logo-boda.png';
-import heroBg from '@assets/hero-bg.jpg';
+import heroBg from '@assets/hero-bg.png';
 
 interface HeroSectionProps {
   couple: string;
