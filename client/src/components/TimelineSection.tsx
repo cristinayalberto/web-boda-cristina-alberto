@@ -21,7 +21,7 @@ interface TimelineSectionProps {
 
 export default function TimelineSection({ days }: TimelineSectionProps) {
   return (
-    <section id="horario" className="py-16 md:py-24 px-4 bg-card">
+    <section id="horario" className="py-16 md:py-24 px-4">
       <div className="container mx-auto max-w-4xl">
         <h2
           className="text-3xl md:text-5xl font-serif text-center mb-12 tracking-wide"

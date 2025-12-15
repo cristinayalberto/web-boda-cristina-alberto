@@ -131,7 +131,7 @@ export default function RSVPForm({ webhookUrl, deadline }: RSVPFormProps) {
   };
 
   return (
-    <section ref={sectionRef} id="confirmar" className="py-16 md:py-24 px-4">
+    <section ref={sectionRef} id="confirmar" className="py-16 md:py-24 px-4 bg-card">
       <div className="container mx-auto max-w-2xl">
         <h2
           className="text-3xl md:text-5xl font-serif text-center mb-6 tracking-wide"
