@@ -7,6 +7,8 @@ import AccommodationSection from '@/components/AccommodationSection';
 import ActivitiesSection from '@/components/ActivitiesSection';
 import GiftSection from '@/components/GiftSection';
 import logoBoda from '@assets/logo-boda.png';
+import ceremoniaImg from '@assets/ceremonia-monasterio.png';
+import celebracionImg from '@assets/celebracion-finca.png';
 
 const WEBHOOK_URL = "https://hook.eu1.make.com/ymt1b3rt5sadj37ikag5wx4hjh8815rg";
 
@@ -31,12 +33,14 @@ export default function Wedding() {
           title: 'Ceremonia',
           description: 'Ceremonia en el Monasterio de San Juan de los Reyes.',
           address: 'Calle Reyes Católicos, 17, Toledo',
+          image: ceremoniaImg,
         },
         {
           time: '15:00',
           title: 'Banquete y fiesta',
           description: 'Banquete y fiesta en Viñedos Cigarral Santa María.',
           address: 'Cerro del Emperador, Toledo',
+          image: celebracionImg,
         },
       ],
     },

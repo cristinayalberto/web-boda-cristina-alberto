@@ -6,6 +6,7 @@ interface TimelineEvent {
   title: string;
   description?: string;
   address?: string;
+  image?: string;
 }
 
 interface TimelineDay {
@@ -48,7 +49,7 @@ export default function TimelineSection({ days }: TimelineSectionProps) {
                   {day.events.map((event, eventIndex) => (
                     <div
                       key={eventIndex}
-                      className="relative flex items-center"
+                      className="relative flex items-start"
                       data-testid={`timeline-event-${dayIndex}-${eventIndex}`}
                     >
                       <div className="md:w-1/2 md:pr-12 w-full pl-20 md:pl-0 md:text-right">
@@ -57,7 +58,17 @@ export default function TimelineSection({ days }: TimelineSectionProps) {
                             {event.time}
                           </p>
                         )}
-                        <Card className="inline-block p-4 md:p-6 text-left">
+                        <Card className="inline-block p-4 md:p-6 text-left overflow-hidden">
+                          {event.image && (
+                            <div className="mb-4 -mx-4 -mt-4 md:-mx-6 md:-mt-6">
+                              <img
+                                src={event.image}
+                                alt={event.title}
+                                className="w-full h-40 md:h-48 object-cover"
+                                data-testid={`event-image-${dayIndex}-${eventIndex}`}
+                              />
+                            </div>
+                          )}
                           <h4 className="text-xl md:text-2xl font-serif mb-2" style={{ fontFamily: 'Playfair Display, serif' }} data-testid={`event-title-${dayIndex}-${eventIndex}`}>
                             {event.title}
                           </h4>
@@ -75,7 +86,7 @@ export default function TimelineSection({ days }: TimelineSectionProps) {
                         </Card>
                       </div>
 
-                      <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-primary rounded-full -ml-2 border-4 border-background" />
+                      <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-primary rounded-full -ml-2 border-4 border-background mt-1" />
 
                       <div className="hidden md:block w-1/2 pl-12" />
                     </div>
