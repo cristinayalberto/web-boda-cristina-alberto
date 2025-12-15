@@ -72,7 +72,6 @@ export default function Wedding() {
           date="Sábado, 26 de septiembre de 2026"
           time="13:00"
           mapsUrl="https://www.google.com/maps/search/?api=1&query=Monasterio+de+San+Juan+de+los+Reyes+Toledo"
-          dressCode="Dress code: elegante, pero cómodo"
         />
 
         <RSVPForm

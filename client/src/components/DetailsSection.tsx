@@ -9,7 +9,6 @@ interface DetailsSectionProps {
   date: string;
   time: string;
   mapsUrl: string;
-  dressCode: string;
 }
 
 export default function DetailsSection({
@@ -18,8 +17,7 @@ export default function DetailsSection({
   city,
   date,
   time,
-  mapsUrl,
-  dressCode
+  mapsUrl
 }: DetailsSectionProps) {
   return (
     <section id="detalles" className="py-16 md:py-24 px-4 bg-card">
@@ -73,12 +71,6 @@ export default function DetailsSection({
             </Button>
           </div>
         </Card>
-
-        <div className="text-center">
-          <p className="text-muted-foreground italic text-lg" data-testid="text-dress-code">
-            {dressCode}
-          </p>
-        </div>
       </div>
     </section>
   );
