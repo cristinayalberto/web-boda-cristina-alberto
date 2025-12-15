@@ -39,7 +39,7 @@ export default function GiftSection({ iban, message, note }: GiftSectionProps) {
           <p className="text-center text-sm text-muted-foreground mb-3">Número de cuenta:</p>
           <div className="flex items-center justify-center gap-3 flex-wrap">
             <p
-              className="text-xl md:text-2xl font-mono font-medium text-center"
+              className="text-base md:text-lg font-mono text-center"
               style={{ fontFamily: 'monospace' }}
               data-testid="text-iban"
             >
