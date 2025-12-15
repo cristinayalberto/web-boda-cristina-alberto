@@ -28,12 +28,9 @@ export default function HeroSection({ couple, date, subtitle, onCTAClick }: Hero
   return (
     <section
       id="inicio"
-      className="min-h-screen flex items-center justify-center px-4 py-20 relative"
+      className="hero-background min-h-screen flex items-center justify-center px-4 py-20 relative"
       style={{
         backgroundImage: `url(${heroBg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
       }}
     >
       <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
