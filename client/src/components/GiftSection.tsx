@@ -22,10 +22,10 @@ export default function GiftSection({ iban, message, note, image }: GiftSectionP
   return (
     <section id="regalo" className="py-16 md:py-24 px-4">
       <div className="container mx-auto max-w-4xl">
-        <div className="text-center mb-10">
-          <Gift className="w-12 h-12 mx-auto text-primary mb-6" />
+        <div className="text-center mb-8">
+          <Gift className="w-12 h-12 mx-auto text-primary mb-4" />
           <h2
-            className="text-3xl md:text-5xl font-serif mb-6 tracking-wide"
+            className="text-3xl md:text-5xl font-serif text-center mb-6 tracking-wide"
             style={{ fontFamily: 'Playfair Display, serif' }}
             data-testid="text-gift-title"
           >
