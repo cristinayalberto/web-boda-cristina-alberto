@@ -45,15 +45,15 @@ export default function HeroSection({ couple, date, subtitle, onCTAClick }: Hero
           />
         </div>
         <h1
-          className="text-5xl md:text-7xl font-serif font-light text-white mb-6 tracking-wide drop-shadow-lg"
-          style={{ fontFamily: 'Playfair Display, serif' }}
+          className="text-5xl md:text-7xl font-serif font-light text-white mb-6 tracking-wide"
+          style={{ fontFamily: 'Playfair Display, serif', textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}
           data-testid="text-couple-names"
         >
           {couple}
         </h1>
         <p
-          className="text-xl md:text-2xl text-white/90 mb-8 font-serif drop-shadow-md"
-          style={{ fontFamily: 'Playfair Display, serif' }}
+          className="text-xl md:text-2xl text-white/90 mb-8 font-serif"
+          style={{ fontFamily: 'Playfair Display, serif', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}
           data-testid="text-wedding-date"
         >
           {date}
