@@ -22,19 +22,19 @@ export default function GiftSection({ iban, message, note, image }: GiftSectionP
   return (
     <section id="regalo" className="py-16 md:py-24 px-4">
       <div className="container mx-auto max-w-4xl">
-        <div className="text-center mb-8">
-          <Gift className="w-12 h-12 mx-auto text-primary mb-4" />
-          <h2
-            className="text-3xl md:text-5xl font-serif text-center mb-6 tracking-wide"
-            style={{ fontFamily: 'Playfair Display, serif' }}
-            data-testid="text-gift-title"
-          >
-            ¿Quieres hacernos un regalo?
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {message}
-          </p>
+        <div className="flex items-center justify-center gap-3 mb-4">
+          <Gift className="w-8 h-8 text-primary" />
         </div>
+        <h2
+          className="text-3xl md:text-5xl font-serif text-center mb-6 tracking-wide"
+          style={{ fontFamily: 'Playfair Display, serif' }}
+          data-testid="text-gift-title"
+        >
+          ¿Quieres hacernos un regalo?
+        </h2>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed text-center mb-12">
+          {message}
+        </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {image && (

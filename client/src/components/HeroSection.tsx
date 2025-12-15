@@ -58,7 +58,11 @@ export default function HeroSection({ couple, date, subtitle, onCTAClick }: Hero
         >
           {date}
         </p>
-        <p className="text-lg md:text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+        <p 
+          className="text-lg md:text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed"
+          style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}
+          data-testid="text-hero-subtitle"
+        >
           {subtitle}
         </p>
         <Button

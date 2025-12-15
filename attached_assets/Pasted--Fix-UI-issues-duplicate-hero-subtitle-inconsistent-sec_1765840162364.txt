@@ -1,0 +1,57 @@
+# Fix UI issues (duplicate hero subtitle + inconsistent section spacing)
+
+Context: This is the wedding site (Cristina & Alberto). On **mobile** the hero subtitle “Nos casamos y queremos celebrarlo contigo” appears **duplicated / overlapped**. Also, the vertical spacing **above** the “Horario” section title and the “¿Quieres hacernos un regalo?” section title is **larger than other sections**.
+
+## Goal
+1) Ensure the hero subtitle renders **only once** (no overlap/duplicate).
+2) Normalize top spacing so all sections have **consistent spacing** (same margin/padding rhythm), especially “Horario” and “Regalo”.
+
+## What to do
+
+### 1) Find and fix the duplicated subtitle
+- Search the codebase for this exact text:
+  - `Nos casamos y queremos celebrarlo contigo`
+- It’s probably rendered twice (e.g., once in a reusable `Hero` component and again in a `Wedding`/`Home` page section), OR it’s rendered once but duplicated by CSS (e.g., `::before/::after`, duplicated layers, absolute positioning, or a second hidden element that becomes visible on mobile).
+
+**Action**
+- If you find it in **two JSX places**, remove one of them so it’s only rendered once.
+- If you find it only once, check the element’s CSS:
+  - Look for `::before` / `::after` adding the same content
+  - Look for duplicated wrappers (e.g., two `p` tags in different responsive blocks)
+  - Look for `position: absolute` + another copy with `opacity` or `transform`
+
+**Expected**
+- On mobile, the subtitle should be a single line/block, not doubled.
+
+### 2) Normalize section spacing (Horario + Regalo)
+Right now those sections likely have extra top padding/margin (e.g., `mt-16` instead of `mt-10`, or an extra spacer/divider).
+
+**Action**
+- Identify the section wrappers for:
+  - “Horario”
+  - “¿Quieres hacernos un regalo?”
+- Compare their wrapper classes/styles with another section that looks correct (e.g., “Hospedaje” or “Detalles”).
+- Unify spacing by using the same wrapper pattern everywhere:
+  - A single consistent class like: `section` (recommended), OR consistent Tailwind like `pt-12 pb-12` / `py-12` and `scroll-mt-*` if needed.
+
+**Implementation option (recommended)**
+- Create a reusable CSS class for sections (in your global CSS, e.g. `client/src/index.css`) like:
+  - `.section { padding-top: 3rem; padding-bottom: 3rem; }`
+  - `.section-title { margin-bottom: 1.5rem; }`
+- Apply it to every section container, including Horario and Regalo, and remove extra `mt-*` spacer divs.
+
+### 3) Quick checks after the fix
+- Test in mobile viewport:
+  - Hero subtitle appears **once**
+  - “Horario” title top spacing matches other sections
+  - “Regalo” title top spacing matches other sections
+- Test desktop too (ensure no regression).
+
+## Files to likely touch
+- `client/src/pages/Wedding.tsx` (or similar page file)
+- Any `Hero.tsx` / `Header.tsx` / `Home.tsx` components
+- Global styles: `client/src/index.css` (or wherever section layout is defined)
+
+## Output expected
+- Commit with a clear message, e.g.:
+  - `Fix: remove duplicated hero subtitle and unify section spacing`
