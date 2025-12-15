@@ -74,16 +74,16 @@ export default function Wedding() {
           mapsUrl="https://www.google.com/maps/search/?api=1&query=Monasterio+de+San+Juan+de+los+Reyes+Toledo"
         />
 
-        <RSVPForm
-          webhookUrl={WEBHOOK_URL}
-          deadline="25 de agosto de 2026"
-        />
-
         <TimelineSection days={timelineDays} />
 
         <AccommodationSection hotels={hotels} />
 
         <ActivitiesSection />
+
+        <RSVPForm
+          webhookUrl={WEBHOOK_URL}
+          deadline="25 de agosto de 2026"
+        />
 
         <GiftSection
           iban="ES71 0073 0100 5208 5671 7635"

@@ -35,10 +35,10 @@ export default function Navigation({ onNavigate }: NavigationProps) {
   const menuItems = [
     { id: 'inicio', label: 'Inicio' },
     { id: 'detalles', label: 'Detalles' },
-    { id: 'confirmar', label: 'Confirmar' },
     { id: 'horario', label: 'Horario' },
     { id: 'hospedaje', label: 'Hospedaje' },
     { id: 'actividades', label: 'Actividades' },
+    { id: 'confirmar', label: 'Confirmar' },
     { id: 'regalo', label: 'Regalo' },
   ];
 
