@@ -45,12 +45,17 @@ export default function Wedding() {
     {
       name: 'Eurostars Toledo',
       address: 'Paseo San Eugenio, s/n, Toledo',
-      promoCodeNote: 'Dispondrás de un código promocional para este hotel. Te lo facilitaremos más adelante. Código promocional: [pendiente de confirmar]',
+      promoCodeNote: 'Código promocional: BODACRIALB',
     },
     {
       name: 'Hotel Boutique Posada de la Sillería',
       address: 'Calle Sillería, 10, Toledo',
-      promoCodeNote: 'Dispondrás de un código promocional para este hotel. Te lo facilitaremos más adelante. Código promocional: [pendiente de confirmar]',
+      promoCodeNote: 'Código promocional: BODACYA26',
+    },
+    {
+      name: 'Hoteles Sercotel',
+      address: '3 hoteles en Toledo',
+      promoCodeNote: 'Registrándose en Sercotel Rewards obtendréis descuentos bastante atractivos.',
     },
   ];
 
