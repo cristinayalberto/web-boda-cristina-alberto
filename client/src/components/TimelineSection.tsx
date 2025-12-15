@@ -24,7 +24,7 @@ export default function TimelineSection({ days }: TimelineSectionProps) {
     <section id="horario" className="py-16 md:py-24 px-4 bg-card">
       <div className="container mx-auto max-w-4xl">
         <h2
-          className="text-3xl md:text-5xl font-serif text-center mb-16 tracking-wide"
+          className="text-3xl md:text-5xl font-serif text-center mb-12 tracking-wide"
           style={{ fontFamily: 'Playfair Display, serif' }}
           data-testid="text-timeline-title"
         >
