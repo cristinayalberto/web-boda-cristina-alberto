@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -70,6 +70,20 @@ interface RSVPFormProps {
 export default function RSVPForm({ webhookUrl, deadline }: RSVPFormProps) {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (submitStatus === 'success' && sectionRef.current) {
+      const offset = 100;
+      const elementPosition = sectionRef.current.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }, [submitStatus]);
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -117,7 +131,7 @@ export default function RSVPForm({ webhookUrl, deadline }: RSVPFormProps) {
   };
 
   return (
-    <section id="confirmar" className="py-16 md:py-24 px-4">
+    <section ref={sectionRef} id="confirmar" className="py-16 md:py-24 px-4">
       <div className="container mx-auto max-w-2xl">
         <h2
           className="text-3xl md:text-5xl font-serif text-center mb-6 tracking-wide"
