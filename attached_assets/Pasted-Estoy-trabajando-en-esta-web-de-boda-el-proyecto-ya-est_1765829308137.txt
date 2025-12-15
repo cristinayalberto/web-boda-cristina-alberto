@@ -1,0 +1,53 @@
+Estoy trabajando en esta web de boda (el proyecto ya está abierto en Replit y la IA ya conoce el contexto del repositorio).
+
+Quiero modificar **SOLO la sección hero de la portada**.
+
+## Objetivo visual
+- Eliminar el icono de corazón que aparece encima del título “Cristina & Alberto”.
+- Sustituir ese corazón por un **logo** (yo proporcionaré el archivo del logo a Replit).
+- Mantener el resto del hero igual: nombres, fecha, texto descriptivo, botón “Confirmar asistencia” y el menú.
+- El logo debe quedar **centrado, encima del título**, con un tamaño proporcionado y buen espaciado.
+
+## Imagen de fondo
+- Poner una **imagen de fondo detrás del título y del logo**, estilo portada.
+- El texto debe seguir siendo perfectamente legible.
+
+## Requisitos técnicos
+1. **Antes de tocar el código**, dime:
+   - En qué carpeta del proyecto debo subir:
+     - la imagen de fondo
+     - el logo
+   - Qué nombre exacto debo dar a cada archivo (por ejemplo `hero-bg.jpg` y `logo-boda.svg`).
+2. Implementa la imagen de fondo usando CSS:
+   - Preferiblemente mediante `background-image` en el contenedor del hero.
+   - Usa:
+     - `background-size: cover`
+     - `background-position: center`
+   - Añade un overlay (oscuro o claro, con opacidad suave) para garantizar la legibilidad del texto.
+3. Elimina completamente el corazón del HTML/JSX (no lo ocultes con CSS).
+4. Añade el logo como:
+   - `<img />` si es SVG/PNG
+   - o como background si el diseño lo requiere
+5. Asegura que el diseño sea **responsive**:
+   - Logo escalable en móvil
+   - Texto sin solapamientos
+6. No modifiques:
+   - otras secciones
+   - estilos globales
+   - comportamiento del router
+7. Si el proyecto usa componentes (Home, Hero, Landing, etc.), haz los cambios **solo en el componente correcto**.
+
+## Entregable esperado
+- Código modificado (JSX/TSX + CSS si aplica).
+- Al final de la respuesta, indícame claramente:
+  - Ruta final de la imagen de fondo
+  - Ruta final del logo
+  - Nombre exacto de ambos archivos
+  - Lista de archivos modificados
+
+## Nota importante
+Voy a subir el logo y la imagen de fondo manualmente en Replit.
+Si necesitas importarlos en React, indícame el `import` exacto.
+Si deben usarse como assets estáticos, indícame la ruta correcta según el build (Vite / GitHub Pages / carpeta `docs` si aplica).
+
+No hagas cambios hasta que me hayas indicado dónde subir los archivos y con qué nombre.
