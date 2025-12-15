@@ -6,6 +6,7 @@ import TimelineSection from '@/components/TimelineSection';
 import AccommodationSection from '@/components/AccommodationSection';
 import ActivitiesSection from '@/components/ActivitiesSection';
 import GiftSection from '@/components/GiftSection';
+import logoBoda from '@assets/logo-boda.png';
 
 const WEBHOOK_URL = "https://hook.eu1.make.com/ymt1b3rt5sadj37ikag5wx4hjh8815rg";
 
@@ -97,7 +98,12 @@ export default function Wedding() {
         />
       </main>
 
-      <footer className="py-8 text-center text-muted-foreground border-t">
+      <footer className="py-12 text-center text-muted-foreground border-t">
+        <img
+          src={logoBoda}
+          alt="Logo Cristina & Alberto"
+          className="w-16 h-16 mx-auto mb-4 object-contain"
+        />
         <p>Cristina & Alberto • 2026</p>
       </footer>
     </div>
