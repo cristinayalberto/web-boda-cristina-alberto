@@ -1,5 +1,4 @@
 import { Button } from '@/components/ui/button';
-import logoBoda from '@assets/logo-boda.png';
 import heroBg from '@assets/hero-bg.png';
 
 interface HeroSectionProps {
@@ -36,14 +35,6 @@ export default function HeroSection({ couple, date, subtitle, onCTAClick }: Hero
       <div className="absolute inset-0 bg-black/25" aria-hidden="true" />
       
       <div className="text-center max-w-4xl mx-auto relative z-10">
-        <div className="mb-8">
-          <img
-            src={logoBoda}
-            alt="Logo de boda Cristina y Alberto"
-            className="w-24 h-24 md:w-32 md:h-32 mx-auto object-contain"
-            data-testid="img-wedding-logo"
-          />
-        </div>
         <h1
           className="text-5xl md:text-7xl font-serif font-light text-white mb-6 tracking-wide"
           style={{ fontFamily: 'Playfair Display, serif', textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}

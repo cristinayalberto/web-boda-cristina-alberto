@@ -30,14 +30,14 @@ export default function Wedding() {
       date: '26 de septiembre de 2026',
       events: [
         {
-          time: '15:00',
+          time: '13:20',
           title: 'Ceremonia',
           description: 'Ceremonia en el Monasterio de San Juan de los Reyes.',
           address: 'Calle Reyes Católicos, 17, Toledo',
           image: ceremoniaImg,
         },
         {
-          time: '16:00',
+          time: '15:00',
           title: 'Banquete y fiesta',
           description: 'Banquete y fiesta en Viñedos Cigarral Santa María.',
           address: 'Cerro del Emperador, Toledo',
@@ -81,7 +81,7 @@ export default function Wedding() {
           address="Calle de los Reyes Católicos, 17"
           city="Toledo, España"
           date="Sábado, 26 de septiembre de 2026"
-          time="15:00"
+          time="13:20"
           mapsUrl="https://www.google.com/maps/search/?api=1&query=Monasterio+de+San+Juan+de+los+Reyes+Toledo"
         />
 
@@ -98,7 +98,7 @@ export default function Wedding() {
 
         <GiftSection
           iban="ES71 0073 0100 5208 5671 7635"
-          message="Tu presencia es el mejor regalo. Si además quieres hacernos un regalo, puedes hacerlo en la siguiente cuenta:"
+          message="Que estéis con nosotros en este día tan especial es lo más importante, pero si queréis realizar algún detalle para nuestra luna de miel podéis hacer una transferencia en la siguiente cuenta bancaria:"
           note="Por favor, indica tu nombre en el concepto"
           image={regaloImg}
         />
