@@ -42,6 +42,7 @@ export default function Wedding() {
           description: 'Banquete y fiesta en Viñedos Cigarral Santa María.',
           address: 'Cerro del Emperador, Toledo',
           image: celebracionImg,
+          imagePosition: 'center 20%',
         },
       ],
     },

@@ -7,6 +7,7 @@ interface TimelineEvent {
   description?: string;
   address?: string;
   image?: string;
+  imagePosition?: string;
 }
 
 interface TimelineDay {
@@ -65,6 +66,7 @@ export default function TimelineSection({ days }: TimelineSectionProps) {
                                 src={event.image}
                                 alt={event.title}
                                 className="w-full h-40 md:h-48 object-cover"
+                                style={{ objectPosition: event.imagePosition || 'center' }}
                                 data-testid={`event-image-${dayIndex}-${eventIndex}`}
                               />
                             </div>
