@@ -1,0 +1,44 @@
+# Cambio de UX: sustituir formulario embebido por Google Form (RSVP)
+
+## Objetivo
+Quiero que en la sección **“Confirmar” / “Confirma tu Asistencia”** ya **no aparezca el formulario actual dentro de la web**.  
+En su lugar, quiero una **experiencia tipo “Google”**: texto claro + CTA principal que **abre un Google Form** para confirmar asistencia.
+
+## Qué tienes que hacer (Replit)
+1) **Localiza** dónde se renderiza el formulario de RSVP (probablemente en `client/src/pages/Confirmar.tsx` o similar, o dentro de `Wedding.tsx` en la sección “Confirmar”).  
+2) **Elimina / desactiva** el componente del formulario actual (inputs, selects, submit, validaciones, etc.).  
+3) Sustitúyelo por un bloque de contenido simple con:
+   - Título: **“Confirma tu asistencia”**
+   - Texto: **“Tu confirmación es importante. Por favor, confírmanos antes del 25 de agosto de 2026.”**
+   - Botón principal (CTA): **“Confirmar asistencia”**
+   - Texto secundario pequeño: “Se abrirá un formulario de Google”
+4) El botón debe abrir el Google Form en **nueva pestaña** con:
+   - `target="_blank"`
+   - `rel="noopener noreferrer"`
+
+## URL del Google Form
+Crea una constante arriba del archivo:
+`const GOOGLE_FORM_URL = "https://forms.gle/aFqbN72a5Wasdhfu9";`
+
+> Si ya tengo la URL, úsala. Si no, deja el placeholder tal cual para que yo la pegue.
+
+## Detalles de diseño (importante)
+- Mantén el estilo actual de la web (tipografía, espaciados y colores).
+- Usa el mismo componente de botón que ya exista en el proyecto (si hay uno tipo `Button`), y si no, reutiliza la clase/estilo del botón principal de la home.
+- Alineación centrada y ancho máximo similar al resto de secciones.
+- En móvil debe verse perfecto (botón ancho, padding generoso).
+
+## Limpieza técnica
+- Borra imports y lógica que queden sin usar (handlers, estado, react-hook-form, zod, etc.).
+- Asegúrate de que no quedan rutas rotas ni warnings de TypeScript.
+- Verifica que la navegación “Confirmar” del menú lleva a esa sección correctamente.
+
+## Validación
+- Al pulsar el botón, se abre el Google Form.
+- La sección “Confirmar” ya no muestra inputs ni formulario embebido.
+- Todo compila y funciona en local y en GitHub Pages.
+
+## Entregable
+Devuélveme:
+- El/los archivos modificados completos (principalmente el que contiene la sección “Confirmar”).
+- Un resumen de 3-5 bullets con lo que has cambiado.

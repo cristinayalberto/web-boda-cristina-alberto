@@ -1,7 +1,7 @@
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import DetailsSection from '@/components/DetailsSection';
-import RSVPForm from '@/components/RSVPForm';
+import RSVPSection from '@/components/RSVPSection';
 import TimelineSection from '@/components/TimelineSection';
 import AccommodationSection from '@/components/AccommodationSection';
 import ActivitiesSection from '@/components/ActivitiesSection';
@@ -10,8 +10,6 @@ import logoBoda from '@assets/logo-boda.png';
 import ceremoniaImg from '@assets/ceremonia-monasterio.png';
 import celebracionImg from '@assets/celebracion-finca.png';
 import regaloImg from '@assets/regalo-decorativo.png';
-
-const WEBHOOK_URL = "https://hook.eu1.make.com/ymt1b3rt5sadj37ikag5wx4hjh8815rg";
 
 export default function Wedding() {
   const timelineDays = [
@@ -92,10 +90,7 @@ export default function Wedding() {
 
         <ActivitiesSection />
 
-        <RSVPForm
-          webhookUrl={WEBHOOK_URL}
-          deadline="25 de agosto de 2026"
-        />
+        <RSVPSection deadline="25 de agosto de 2026" />
 
         <GiftSection
           iban="ES71 0073 0100 5208 5671 7635"
