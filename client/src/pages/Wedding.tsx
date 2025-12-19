@@ -30,7 +30,7 @@ export default function Wedding() {
       date: '26 de septiembre de 2026',
       events: [
         {
-          time: '13:00',
+          time: '13:20',
           title: 'Ceremonia',
           description: 'Ceremonia en el Monasterio de San Juan de los Reyes.',
           address: 'Calle Reyes Católicos, 17, Toledo',
@@ -81,7 +81,7 @@ export default function Wedding() {
           address="Calle de los Reyes Católicos, 17"
           city="Toledo, España"
           date="Sábado, 26 de septiembre de 2026"
-          time="13:00"
+          time="13:20"
           mapsUrl="https://www.google.com/maps/search/?api=1&query=Monasterio+de+San+Juan+de+los+Reyes+Toledo"
         />
 
