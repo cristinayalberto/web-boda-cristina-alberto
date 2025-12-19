@@ -33,7 +33,7 @@ export default function HeroSection({ couple, date, subtitle, onCTAClick }: Hero
         backgroundImage: `url(${heroBg})`,
       }}
     >
-      <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
+      <div className="absolute inset-0 bg-black/25" aria-hidden="true" />
       
       <div className="text-center max-w-4xl mx-auto relative z-10">
         <div className="mb-8">
