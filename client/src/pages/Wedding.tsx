@@ -3,6 +3,7 @@ import HeroSection from '@/components/HeroSection';
 import DetailsSection from '@/components/DetailsSection';
 import RSVPSection from '@/components/RSVPSection';
 import TimelineSection from '@/components/TimelineSection';
+import BusSection from '@/components/BusSection';
 import AccommodationSection from '@/components/AccommodationSection';
 import ActivitiesSection from '@/components/ActivitiesSection';
 import GiftSection from '@/components/GiftSection';
@@ -18,8 +19,12 @@ export default function Wedding() {
       date: '25 de septiembre de 2026',
       events: [
         {
-          title: 'Preboda',
-          description: 'Habrá una preboda el viernes 25. Os daremos más información más adelante.',
+          time: '20:45',
+          title: 'Preboda en Nuevo Almacén',
+          description: 'Os invitaremos a picar algo en el restaurante Nuevo Almacén. ¡Nos vemos allí para empezar el fin de semana juntos!',
+          address: 'Nuevo Almacén Zocodover · C. Nueva, 7, 45001 Toledo',
+          mapsUrl: 'https://maps.app.goo.gl/uQhbcACex8P5SX5AA?g_st=ic',
+          dressCode: 'Casual',
         },
       ],
     },
@@ -28,16 +33,16 @@ export default function Wedding() {
       date: '26 de septiembre de 2026',
       events: [
         {
-          time: '13:20',
-          title: 'Ceremonia',
-          description: 'Ceremonia en el Monasterio de San Juan de los Reyes.',
+          time: '13:15',
+          title: 'Recepción y ceremonia',
+          description: 'Os recibiremos a las 13:15. La novia entra a las 13:30. La entrada será por la Plaza San Juan de los Reyes.',
           address: 'Calle Reyes Católicos, 17, Toledo',
           image: ceremoniaImg,
         },
         {
-          time: '15:00',
+          time: '14:30',
           title: 'Banquete y fiesta',
-          description: 'Banquete y fiesta en Viñedos Cigarral Santa María.',
+          description: 'Al finalizar la ceremonia, en torno a las 14:30, los autobuses estarán esperando a la salida para llevaros a Viñedos Cigarral Santa María.',
           address: 'Cerro del Emperador, Toledo',
           image: celebracionImg,
           imagePosition: 'center 20%',
@@ -80,11 +85,13 @@ export default function Wedding() {
           address="Calle de los Reyes Católicos, 17"
           city="Toledo, España"
           date="Sábado, 26 de septiembre de 2026"
-          time="13:20"
+        time="13:15 · ceremonia a las 13:30"
           mapsUrl="https://www.google.com/maps/search/?api=1&query=Monasterio+de+San+Juan+de+los+Reyes+Toledo"
         />
 
         <TimelineSection days={timelineDays} />
+
+        <BusSection />
 
         <AccommodationSection hotels={hotels} />
 

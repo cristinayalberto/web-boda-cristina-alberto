@@ -1,11 +1,13 @@
 import { Card } from '@/components/ui/card';
-import { MapPin } from 'lucide-react';
+import { ExternalLink, MapPin, Shirt } from 'lucide-react';
 
 interface TimelineEvent {
   time?: string;
   title: string;
   description?: string;
   address?: string;
+  mapsUrl?: string;
+  dressCode?: string;
   image?: string;
   imagePosition?: string;
 }
@@ -83,6 +85,24 @@ export default function TimelineSection({ days }: TimelineSectionProps) {
                             <p className="text-sm text-muted-foreground flex items-start gap-1" data-testid={`event-address-${dayIndex}-${eventIndex}`}>
                               <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                               <span>{event.address}</span>
+                            </p>
+                          )}
+                          {event.mapsUrl && (
+                            <a
+                              href={event.mapsUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex items-center gap-1 mt-3 text-sm text-primary underline-offset-4 hover:underline"
+                              data-testid={`event-location-link-${dayIndex}-${eventIndex}`}
+                            >
+                              Ver ubicación
+                              <ExternalLink className="w-3.5 h-3.5" />
+                            </a>
+                          )}
+                          {event.dressCode && (
+                            <p className="text-sm text-muted-foreground flex items-center gap-1 mt-3" data-testid={`event-dress-code-${dayIndex}-${eventIndex}`}>
+                              <Shirt className="w-4 h-4 flex-shrink-0" />
+                              <span><strong className="font-medium text-foreground">Código de vestimenta:</strong> {event.dressCode}</span>
                             </p>
                           )}
                         </Card>
