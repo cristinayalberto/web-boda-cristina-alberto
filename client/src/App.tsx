@@ -6,9 +6,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Wedding from "@/pages/Wedding";
 import NotFound from "@/pages/not-found";
 
-// ✅ Base path para GitHub Pages (repo: web-boda-cristina-alberto)
-const BASE = "/web-boda-cristina-alberto";
-
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
@@ -16,15 +13,12 @@ function App() {
         <Toaster />
 
         <Switch>
-          {/* Home */}
-          <Route path={`${BASE}/`} component={Wedding} />
-
-          {/* Por si alguien entra sin la barra final */}
-          <Route path={BASE} component={Wedding} />
-
-          {/* 404 */}
+          <Route path="/" component={Wedding} />
+          <Route path="/web-boda-cristina-alberto/" component={Wedding} />
+          <Route path="/web-boda-cristina-alberto" component={Wedding} />
           <Route component={NotFound} />
         </Switch>
+
       </TooltipProvider>
     </QueryClientProvider>
   );
