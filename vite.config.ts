@@ -4,7 +4,9 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
-  base: "/",
+  base: process.env.GITHUB_PAGES === "true"
+    ? "/web-boda-cristina-alberto/"
+    : "/",
 
   plugins: [
     react(),
