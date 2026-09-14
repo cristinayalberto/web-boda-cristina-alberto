@@ -1,0 +1,234 @@
+Estamos trabajando en la web de boda de Cristina y Alberto, dentro de este proyecto de Replit.
+
+Quiero que hagas una modificación REAL de la web existente. No quiero únicamente que me digas que has hecho los cambios: necesito que revises el código actual, edites los archivos necesarios y compruebes que la información aparece en la página.
+
+1. PRIMERO: REVISAR LA WEB ACTUAL
+
+Antes de modificar nada:
+
+1. Revisa la estructura actual del proyecto.
+2. Localiza el archivo o archivos que contienen la página principal de la boda.
+3. Identifica dónde están:
+    * El apartado de la preboda.
+    * La información de la ceremonia y celebración.
+    * La agenda o itinerario.
+    * Las preguntas frecuentes, si las hay.
+4. Comprueba si ya existe información de Cristina y Alberto relacionada con estos eventos.
+5. No crees una segunda web ni dupliques componentes existentes.
+
+Importante: Utiliza los componentes, estilos, tipografías, colores y estructura visual que ya tiene la web. Los nuevos apartados deben parecer parte de la misma boda, no elementos añadidos sin diseño.
+
+⸻
+
+CAMBIOS QUE HAY QUE HACER
+
+2. AÑADIR O MODIFICAR EL APARTADO DE PREBODA
+
+Quiero que exista un apartado claramente visible llamado:
+
+Preboda
+
+Debe incluir la siguiente información:
+
+Viernes 25 — Cena de bienvenida
+
+Lugar: Restaurante Nuevo Almacén
+
+Hora: 20:45
+
+Código de vestimenta: Casual
+
+Ubicación:
+
+https://maps.app.goo.gl/uQhbcACex8P5SX5AA?g_st=ic
+
+El texto que debe mostrarse es:
+
+«Para los que venís el viernes os invitaremos a picar algo en el restaurante Nuevo Almacén desde las 20:45. Código de vestimenta: Casual.»
+
+Diseño del apartado
+
+* Debe integrarse con el diseño actual de la web.
+* Puede utilizar una tarjeta, bloque de evento o sección propia, según cómo esté construida la web.
+* Debe mostrar claramente el día, la hora, el lugar y el código de vestimenta.
+* El enlace de Google Maps debe ser clicable y abrirse en una pestaña nueva.
+* Si ya existe un apartado de preboda, modifícalo en lugar de crear otro duplicado.
+* No inventes una dirección postal que no aparece en la información facilitada. Utiliza el enlace de Google Maps.
+
+⸻
+
+3. AÑADIR UN APARTADO DE TRANSPORTE DE VUELTA
+
+Quiero crear un apartado claramente visible llamado:
+
+Autobuses de vuelta
+
+O un título equivalente que encaje mejor con el diseño actual.
+
+Este apartado debe explicar que habrá dos autobuses de vuelta desde la finca hacia Toledo, con distintos horarios y paradas.
+
+Texto introductorio
+
+«En cuanto a la vuelta, tendremos 2 horarios de salida de los autobuses: 22:30 y 00:30.
+
+Los autobuses no podrán meterse en el casco de la ciudad, por lo que realizarán paradas en los siguientes puntos. Revisad bien cuál es la más conveniente para cada uno de vosotros.»
+
+Autobús 1
+
+Horario de salida: 22:30
+
+Paradas:
+
+1. Hotel Cigarrales
+2. Puente San Martín
+3. Hacienda El Cardenal
+4. Plaza de Toros
+
+Autobús 2
+
+Horario de salida: 00:30
+
+Paradas:
+
+1. Hotel Palacio Buenavista
+2. Hotel Beatriz
+3. Ronda Granadal
+
+Diseño del apartado de autobuses
+
+Quiero que los dos autobuses se vean claramente diferenciados.
+
+Por ejemplo:
+
+* Dos tarjetas, una al lado de la otra en ordenador.
+* Una debajo de otra en móvil.
+* Cada tarjeta debe mostrar el nombre del autobús, su horario y la lista de paradas.
+* Utiliza iconos de transporte si encajan con el diseño existente.
+* No añadas horarios de salida adicionales.
+* No inventes horarios de llegada.
+* No inventes rutas ni paradas.
+* No añadas enlaces de Google Maps a las paradas salvo que ya existan en la web o puedas incorporarlos sin inventar información.
+
+⸻
+
+4. REVISAR Y ACTUALIZAR EL ITINERARIO DEL FIN DE SEMANA
+
+Quiero que la web muestre correctamente la información del fin de semana.
+
+Si existe un apartado de agenda, itinerario o programa, actualízalo con estos datos:
+
+Viernes 25
+
+20:45 — Cena de bienvenida
+
+Restaurante Nuevo Almacén.
+
+Código de vestimenta: Casual.
+
+Ubicación mediante el enlace facilitado.
+
+Sábado 26 — El Gran Día
+
+13:15 — Recepción de invitados
+
+Lugar: Monasterio San Juan de los Reyes.
+
+Indicar que la entrada es por la Plaza San Juan de los Reyes.
+
+13:30 — Ceremonia
+
+Lugar: Monasterio San Juan de los Reyes.
+
+14:30 aproximadamente — Traslado a la celebración
+
+Los autobuses estarán esperando a la salida del monasterio para llevar a los invitados a la finca.
+
+Celebración
+
+Lugar: Viñedos Cigarral de Santa María.
+
+Ubicación:
+
+https://maps.app.goo.gl/izsrRvRuFq3M4Nar5?g_st=ic
+
+No inventes una hora de finalización de la celebración.
+
+⸻
+
+5. AÑADIR INFORMACIÓN ÚTIL PARA LOS INVITADOS
+
+Incluye en un apartado de información, consejos o preguntas frecuentes —según la estructura actual— estos detalles:
+
+Abanicos
+
+«Si el día acompaña pero la temperatura es más alta de lo esperado, pondremos unos abanicos para que el evento se haga más llevadero.»
+
+Alpargatas
+
+«Para las chicas habrá alpargatas. Os recomendamos cogerlas aunque estéis cómodas en la fiesta, para que os las podáis poner en la vuelta, ya que las calles de Toledo son un poco incómodas para el tacón.»
+
+Contacto
+
+«Cualquier duda podéis escribirnos.»
+
+No inventes números de teléfono ni datos de contacto que no estén ya en el proyecto.
+
+⸻
+
+6. REVISAR EL TEXTO GENERAL DE LA BODA
+
+Si la web tiene una sección de bienvenida o mensaje de los novios, revisa que pueda incluir este texto, manteniendo un diseño elegante y legible:
+
+«Querida Familia/Amigos
+
+Ya va quedando muy poquito para que llegue el fin de semana que más ilusión nos hace a los dos, pero lo hace más especial poder compartirlo con todos vosotros. Ya vamos contando los minutos para poder reír, brindar y disfrutar con todos.
+
+Para que os podáis organizar, os pasamos un resumen del fin de semana:
+
+Viernes 25: Para los que venís el viernes os invitaremos a picar algo en el restaurante Nuevo Almacén desde las 20:45. Código de Vestimenta: Casual.
+
+Sábado 26 (El Gran Día): La ceremonia será en el Monasterio San Juan de los Reyes y os recibiremos a las 13:15. Seamos puntuales, que la novia entra a las 13:30 y nadie quiere perdérselo.
+
+Entrada por la Plaza San Juan de los Reyes.
+
+Una vez finalice, en torno a las 14:30, lo celebraremos en los Viñedos Cigarral de Santa María. Estarán los autobuses esperándonos a la salida para llevaros allí.
+
+En cuanto a la vuelta, tendremos 2 horarios de salida de los autobuses: 22:30 y 00:30.
+
+Los autobuses no podrán meterse en el casco de la ciudad, por lo que realizarán paradas en los puntos indicados en el apartado de transporte.
+
+Estamos deseando que llegue este día y poder estar con todos vosotros.
+
+Cualquier duda podéis escribirnos.
+
+Muchos besos y gracias!!! 👰❤️🤵‍♂️»
+
+Puedes corregir faltas de ortografía y mejorar ligeramente la redacción, pero conserva el tono cercano y familiar.
+
+⸻
+
+7. COMPROBACIÓN OBLIGATORIA
+
+Después de modificar el código:
+
+1. Comprueba que los nuevos apartados están realmente incluidos en los archivos de la web.
+2. Comprueba que el apartado Preboda aparece en la página.
+3. Comprueba que aparecen los dos autobuses, con sus horarios y todas sus paradas.
+4. Comprueba que los enlaces de Google Maps funcionan.
+5. Comprueba que el diseño es responsive y se ve bien en móvil.
+6. Comprueba que no has eliminado información existente de la boda.
+7. Si hay errores de TypeScript, JSX o compilación, corrígelos.
+8. Ejecuta la aplicación o el proceso de build disponible en el proyecto y verifica que no hay errores.
+
+Muy importante:
+
+No me respondas simplemente «hecho» si no has modificado los archivos.
+
+Al finalizar, dime:
+
+* Qué archivos has modificado.
+* Qué cambios concretos has realizado.
+* Cómo has comprobado que aparecen en la web.
+* Si hay algún dato que falte o alguna decisión que necesite confirmar.
+
+No hagas cambios en GitHub ni publiques nada fuera de Replit. De momento, solo quiero que la aplicación quede correctamente modificada en este proyecto de Replit.

@@ -4,10 +4,12 @@ import { Bus, Clock3, MapPin } from 'lucide-react';
 const buses = [
   {
     name: 'Autobús 1',
+    departure: '22:30',
     stops: ['Hotel Cigarrales', 'Puente San Martín', 'Hacienda El Cardenal', 'Plaza de Toros'],
   },
   {
     name: 'Autobús 2',
+    departure: '00:30',
     stops: ['Hotel Palacio Buenavista', 'Hotel Beatriz', 'Ronda Granadal'],
   },
 ];
@@ -26,7 +28,9 @@ export default function BusSection() {
             Autobuses de vuelta
           </h2>
           <p className="text-muted-foreground mt-5 leading-relaxed">
-            Habrá dos horarios de salida desde Viñedos Cigarral de Santa María. Los autobuses no pueden entrar en el casco histórico, así que revisad qué parada os viene mejor.
+            En cuanto a la vuelta, tendremos 2 horarios de salida de los autobuses: 22:30 y 00:30.
+            <br className="my-2" />
+            Los autobuses no podrán meterse en el casco de la ciudad, por lo que realizarán paradas en los siguientes puntos. Revisad bien cuál es la más conveniente para cada uno de vosotros.
           </p>
         </div>
 
@@ -49,18 +53,13 @@ export default function BusSection() {
               <div className="flex items-start gap-3 mb-6">
                 <Clock3 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-medium mb-2">Horarios de salida</p>
-                  <div className="flex flex-wrap gap-2">
-                    {['22:30', '00:30'].map((time) => (
-                      <span
-                        key={time}
-                        className="rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-sm"
-                        data-testid={`bus-time-${busIndex}-${time}`}
-                      >
-                        {time}
-                      </span>
-                    ))}
-                  </div>
+                  <p className="font-medium mb-2">Horario de salida</p>
+                  <span
+                    className="inline-block rounded-full border border-primary/30 bg-primary/5 px-3 py-1 text-sm"
+                    data-testid={`bus-time-${busIndex}`}
+                  >
+                    {bus.departure}
+                  </span>
                 </div>
               </div>
 

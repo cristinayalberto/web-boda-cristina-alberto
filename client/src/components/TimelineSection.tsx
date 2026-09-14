@@ -5,6 +5,7 @@ interface TimelineEvent {
   time?: string;
   title: string;
   description?: string;
+  venue?: string;
   address?: string;
   mapsUrl?: string;
   dressCode?: string;
@@ -79,6 +80,12 @@ export default function TimelineSection({ days }: TimelineSectionProps) {
                           {event.description && (
                             <p className="text-muted-foreground mb-2" data-testid={`event-description-${dayIndex}-${eventIndex}`}>
                               {event.description}
+                            </p>
+                          )}
+                          {event.venue && (
+                            <p className="text-sm text-muted-foreground flex items-start gap-1" data-testid={`event-venue-${dayIndex}-${eventIndex}`}>
+                              <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                              <span><strong className="font-medium text-foreground">Lugar:</strong> {event.venue}</span>
                             </p>
                           )}
                           {event.address && (
